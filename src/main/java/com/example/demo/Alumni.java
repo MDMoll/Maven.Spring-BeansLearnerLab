@@ -17,9 +17,9 @@ public class Alumni {
     
     @PostConstruct
     public void executeBootCamp() {
-        int numberOfInstructors = instructors.size();
-        int numberOfStudents = previousStudents.size();
-        double numberOfHoursToTeachEachStudent = 800;
+        int numberOfInstructors = getInstructors().size();
+        int numberOfStudents = getPreviousStudents().size();
+        double numberOfHoursToTeachEachStudent = 1200;
         double numberOfHoursToTeach = numberOfHoursToTeachEachStudent * numberOfStudents;
         double numberOfHoursPerInstructor = numberOfHoursToTeach / numberOfInstructors;
         
@@ -35,4 +35,14 @@ public class Alumni {
     public Instructors getInstructors() {
         return instructors;
     }
+    
+    
+    public void setPreviousStudents(Students previousStudents) {
+        this.previousStudents = previousStudents;
+    }
+    
+    public void setInstructors(Instructors instructors) {
+        this.instructors = instructors;
+    }
+    
 }
