@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import java.util.Iterator;
 import java.util.List;
 
 public abstract class People<PersonType extends Person> implements Iterable<PersonType> {
@@ -20,18 +21,16 @@ public abstract class People<PersonType extends Person> implements Iterable<Pers
         personList.remove(personType);
     }
     
-    Integer size(List<PersonType> personList) {
+    Integer size() {
         return personList.size();
     }
     
-    void clear(List<PersonType> personList) {
+    void clear() {
         personList.clear();
     }
     
     void addAll() {
-        for (PersonType personType : personList) {
-            personList.add(Iterable < PersonType >);
-        }
+        personList.addAll(personList);
     }
     
     public PersonType getById(Long id) {
@@ -43,7 +42,14 @@ public abstract class People<PersonType extends Person> implements Iterable<Pers
         return null;
     }
     
-    List<PersonType> findAll() {
-        return personList;
+    public void findAll() {
+        personList.stream()
+                .map(personType -> personList)
+                .forEach(System.out::println);
+    }
+    
+    @Override
+    public Iterator<PersonType> iterator() {
+        return personList.iterator();
     }
 }
